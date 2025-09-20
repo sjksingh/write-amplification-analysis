@@ -225,23 +225,3 @@ Bytes per row: 60.27
 ```
 
 **Result: 10.24x Write Amplification**
-
-## 🧪 Advanced Testing
-
-### Load Testing
-```bash
-# Run sustained load test
-./scripts/load_test.sh --duration=300 --connections=10
-
-# Monitor amplification under load
-./scripts/monitor_amplification.sh
-```
-
-### PostgreSQL Optimization Testing
-```bash
-# Test with different configurations
-./scripts/test_pg_configs.sh
-
-# Test HOT vs non-HOT updates
-./scripts/test_hot_updates.sh
-```
