@@ -21,8 +21,7 @@ This repository provides a complete reproduction environment for measuring write
 
 ### Prerequisites
 - Docker and Docker Compose
-- 4GB available RAM
-- 10GB disk space
+- Enough resources
 
 ### Run Complete Test Suite
 ```bash
