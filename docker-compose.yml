@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:17
+    container_name: pg_demo
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: write_amp_demo
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres-init:/docker-entrypoint-initdb.d
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_demo
+    environment:
+      MYSQL_ROOT_PASSWORD: demo
+      MYSQL_DATABASE: write_amp_demo
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: demo
+    ports:
+      - "3306:3306"
+    command: --binlog-format=ROW
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
