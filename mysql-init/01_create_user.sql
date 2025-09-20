@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS write_amp_demo;
+CREATE USER IF NOT EXISTS 'demo'@'%' IDENTIFIED BY 'demo';
+GRANT ALL PRIVILEGES ON write_amp_demo.* TO 'demo'@'%';
+FLUSH PRIVILEGES;
