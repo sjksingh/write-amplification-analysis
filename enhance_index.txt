@@ -1,9 +1,0 @@
-CREATE INDEX idx_start_time ON rides_pg(start_time);
-CREATE INDEX idx_end_time   ON rides_pg(end_time);
-CREATE INDEX idx_composite  ON rides_pg(driver_id, passenger_id);
-
--- Same for MySQL
-
-ALTER TABLE rides_mysql ADD INDEX idx_start_time (start_time);
-ALTER TABLE rides_mysql ADD INDEX idx_end_time (end_time);
-ALTER TABLE rides_mysql ADD INDEX idx_composite (driver_id, passenger_id);
