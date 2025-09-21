@@ -36,17 +36,18 @@ docker-compose up -d
 sleep 60
 
 # Run PostgreSQL test (3 indexes)
-./scripts/pg_enhanced.sh
+./pg_measure.sh
 
 # Run MySQL test (3 indexes)  
-./scripts/mysql_enhanced.sh
+./mysql_measure.sh
 
 # Add additional indexes
-./scripts/add_indexes.sh
+./scripts/pg_add_indexes.sh
+./scripts/mysql_add_indexes.sh
 
 # Test with 6 indexes
-./scripts/pg_enhanced.sh
-./scripts/mysql_enhanced.sh
+./pg_measure.sh
+./mysql_measure.sh
 
 # Generate comparison report
 ./scripts/analyze_results.sh
@@ -105,20 +106,22 @@ WHERE ride_id <= 50000;
 
 ```
 write-amplification-analysis/
-├── docker-compose.yml          # Complete test environment
-├── scripts/
-│   ├── pg_enhanced.sh         # PostgreSQL measurement script
-│   ├── mysql_enhanced.sh      # MySQL measurement script
-│   ├── add_indexes.sh         # Add additional indexes
-│   ├── analyze_results.sh     # Generate comparison report
-│   └── cleanup.sh             # Reset test environment
-├── postgres-init/
-│   └── init.sql              # PostgreSQL schema and data
-├── mysql-init/
-│   └── init.sql              # MySQL schema and data
-├── results/
-│   └── sample_results.md     # Example test output
-└── README.md                 # This file
+
+├── README.md
+├── docker-compose.yml
+├── mysql-init
+│   ├── 01_create_user.sql
+│   ├── 02_schema.sql
+│   └── 03_grant_replication.sql
+├── mysql_login.sh
+├── mysql_measure.sh
+├── pg_login.sh
+├── pg_measure.sh
+├── postgres-init
+│   └── 01_schema.sql
+└── scripts
+    ├── mysql_add_indexes.sh
+    └── pg_add_indexes.sh
 ```
 
 ## 📈 Understanding the Results
