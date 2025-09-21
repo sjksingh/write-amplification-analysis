@@ -26,7 +26,7 @@ This repository provides a complete reproduction environment for measuring write
 ### Run Complete Test Suite
 ```bash
 # Clone repository
-git clone git@github.com:sjksingh/write-amplification-analysis.git
+git clone https://github.com/sjksingh/write-amplification-analysis.git
 cd write-amplification-analysis
 
 # Start test environment
